@@ -1,0 +1,7 @@
+:8080 {
+    encode gzip
+    reverse_proxy 213.35.123.26:3000 {
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Forwarded-For {remote}
+    }
+}
