@@ -1,0 +1,9 @@
+# idx.yaml
+name: reverse-proxy
+services:
+  - name: caddy
+    run: |
+      nix develop --command caddy run --config ./Caddyfile --adapter caddyfile
+    ports:
+      - port: 8080
+        onOpen: open-preview
